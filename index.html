@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valentine's Question</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: pink;
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        max-width: 400px; /* Limits container width for larger screens */
+      }
+      img {
+        width: 100%;
+        max-width: 300px; /* Ensures image doesn't exceed 300px */
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+      h1 {
+        font-size: 24px; /* Adjust font size for mobile */
+        margin: 10px 0;
+      }
+      .buttons {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      button {
+        font-size: 18px; /* Slightly smaller font size for mobile */
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+      }
+      #yesButton {
+        background-color: red;
+        color: white;
+      }
+      #noButton {
+        background-color: white;
+        color: black;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- First Screen -->
+    <div id="firstScreen" class="container">
+      <img
+        src="https://gifdb.com/images/high/anime-boy-mafuyu-sato-uoucoq3gpd5q24l5.webp"
+        alt="Anime boy asking"
+      />
+      <h1>Will you be my Valentine? ❤️</h1>
+      <div class="buttons">
+        <button id="yesButton">Yes</button>
+        <button id="noButton">No</button>
+      </div>
+    </div>
+
+    <!-- Second Screen -->
+    <div id="secondScreen" class="container hidden">
+      <img
+        src="https://gifdb.com/images/high/adorable-blue-cat-giving-flower-6awchkiabhgyysfg.webp"
+        alt="Adorable cat with flower"
+      />
+      <h1>Yayyyy, Thank youu ❤️</h1>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let yesButton = document.getElementById("yesButton");
+        let noButton = document.getElementById("noButton");
+        let firstScreen = document.getElementById("firstScreen");
+        let secondScreen = document.getElementById("secondScreen");
+        let size = 20; // Initial button font size
+
+        noButton.addEventListener("click", function () {
+          size += 10; // Increase font size
+          yesButton.style.fontSize = size + "px";
+          yesButton.style.padding = size / 2 + "px " + size + "px";
+        });
+
+        yesButton.addEventListener("click", function () {
+          firstScreen.classList.add("hidden");
+          secondScreen.classList.remove("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>
